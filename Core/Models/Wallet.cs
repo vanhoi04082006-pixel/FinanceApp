@@ -11,18 +11,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization; // Thêm thư viện này
 
 namespace FinanceApp.Core.Models
 {
+    // Gắn nhãn để JSON biết cách phân biệt các loại ví con
+    [JsonPolymorphic(TypeDiscriminatorPropertyName = "$type")]
+    [JsonDerivedType(typeof(CashWallet), typeDiscriminator: "cash")]
+    [JsonDerivedType(typeof(CardWallet), typeDiscriminator: "card")]
     public abstract class Wallet
     {
-        public string Id { get; set; }      // Mã ví 
-        public string Name { get; set; }    // Tên ví 
-        public decimal Balance { get; set; } // Số dư 
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public decimal Balance { get; set; }
         public List<Transaction> Transactions { get; set; }
 
-        // Quy tắc bắt buộc: Mọi loại ví con đều phải tự khai báo danh tính
         public abstract string GetWalletType();
+
         public Wallet()
         {
             Transactions = new List<Transaction>();

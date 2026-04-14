@@ -1,4 +1,11 @@
-﻿using FinanceApp.Core.Enums;
+﻿/*
+ * Tên file : TransferService.cs
+ * Người tạo : Bùi Văn Hội
+ * Ngày tạo : 08/04/2026
+ * Mục đích : Xử lý logic chuyển tiền giữa các ví và ghi lại lịch sử đối ứng.
+ * Version   : 1.2 (Tích hợp Auto-Save JSON)
+ */
+using FinanceApp.Core.Enums;
 using FinanceApp.Core.Models;
 using FinanceApp.Data;
 using System;
@@ -45,6 +52,10 @@ namespace FinanceApp.Services
             int toId = toWallet.Transactions.Count + 1;
             Transaction toTrans = new Transaction(toId, amount, DateTime.Now, note, TransactionType.Income, null);
             toWallet.Transactions.Add(toTrans);
+
+            // BƯỚC 5: LƯU THAY ĐỔI VÀO FILE JSON 💾
+            // Một lần gọi này sẽ lưu toàn bộ trạng thái mới của cả 2 ví và các giao dịch vừa thêm
+            _data.SaveChanges();
 
             return true; // Thành công!
         }
