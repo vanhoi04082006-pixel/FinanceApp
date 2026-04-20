@@ -62,6 +62,11 @@
     <Reference Include="System.Text.Json, Version=10.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Text.Json.10.0.5\lib\net462\System.Text.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -74,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Enums\TransactionType.cs" />
+    <Compile Include="Core\Factories\CardFactory.cs" />
+    <Compile Include="Core\Factories\CashFactory.cs" />
+    <Compile Include="Core\Factories\IFinanceFactory.cs" />
     <Compile Include="Core\Models\CardWallet.cs" />
     <Compile Include="Core\Models\CashWallet.cs" />
     <Compile Include="Core\Models\Category.cs" />
@@ -92,15 +100,14 @@
     <Compile Include="Services\TransferService.cs" />
     <Compile Include="Services\WalletService.cs" />
     <Compile Include="UI\MenuManager.cs" />
+    <Compile Include="Utils\InputHelper.cs" />
+    <Compile Include="Utils\Validator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\Factories\" />
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

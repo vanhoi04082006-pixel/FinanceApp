@@ -1,10 +1,10 @@
 /*
  * Tên file : WalletService.cs
  * Người tạo : Bùi Văn Hội
- * Ngày tạo : 08/04/2026
- * Mục đích : Điều khiển các thao tác với ví và lưu trữ thay đổi.
- * Version   : 1.2 (Tích hợp Auto-Save JSON)
+ * Mục đích : Điều khiển thao tác ví. Đã áp dụng Factory Pattern.
+ * Version   : 2.0 (Pro Architecture)
  */
+using FinanceApp.Core.Factories; // Gọi thư mục nhà máy
 using FinanceApp.Core.Models;
 using FinanceApp.Data;
 using System;
@@ -17,26 +17,40 @@ namespace FinanceApp.Services
     {
         private DatabaseContext _data;
 
+        // Băng chuyền kết nối các nhà máy 🏭
+        private readonly Dictionary<string, IFinanceFactory> _factories;
+
         public WalletService()
         {
             _data = DatabaseContext.Instance;
+
+            // Đăng ký các nhà máy vào hệ thống
+            // Nhập "cash" -> Gọi CashFactory | Nhập "card" -> Gọi CardFactory
+            _factories = new Dictionary<string, IFinanceFactory>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "cash", new CashFactory() },
+                { "card", new CardFactory() }
+            };
         }
 
         public void CreateWallet(string type, string name, decimal balance)
         {
             string newId = GenerateWalletId();
 
-            if (type.ToLower() == "cash")
+            // KIỂM TRA: Hệ thống có nhà máy nào tên như chữ 'type' người dùng nhập không?
+            if (_factories.TryGetValue(type, out IFinanceFactory factory))
             {
-                _data.Wallets.Add(new CashWallet { Id = newId, Name = name, Balance = balance });
-            }
-            else if (type.ToLower() == "card")
-            {
-                _data.Wallets.Add(new CardWallet { Id = newId, Name = name, Balance = balance });
-            }
+                // Nếu có, ra lệnh cho nhà máy đó sản xuất ví
+                Wallet newWallet = factory.CreateWallet(newId, name, balance);
 
-            // LƯU THAY ĐỔI: Sau khi thêm ví mới
-            _data.SaveChanges();
+                // Cất vào kho và lưu file
+                _data.Wallets.Add(newWallet);
+                _data.SaveChanges();
+            }
+            else
+            {
+                Console.WriteLine($"❌ Hệ thống chưa hỗ trợ tạo loại ví '{type}' này.");
+            }
         }
 
         private string GenerateWalletId()
@@ -56,8 +70,6 @@ namespace FinanceApp.Services
             if (wallet != null)
             {
                 wallet.Name = newName;
-
-                // LƯU THAY ĐỔI: Sau khi sửa tên ví
                 _data.SaveChanges();
                 return true;
             }
@@ -75,8 +87,6 @@ namespace FinanceApp.Services
             }
 
             _data.Wallets.Remove(wallet);
-
-            // LƯU THAY ĐỔI: Sau khi xóa ví
             _data.SaveChanges();
             return (true, "Đã xóa ví thành công.");
         }

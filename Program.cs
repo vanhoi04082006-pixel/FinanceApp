@@ -26,7 +26,6 @@ namespace FinanceApp
             MenuManager menu = new MenuManager(walletService, transactionService, categoryService, transferService, statisticsService, data);
 
             // 3. Bắt đầu chạy giao diện
-            Console.WriteLine("🚀 Ứng dụng Quản lý Tài chính đang khởi động...");
             menu.Start();
 
         }

@@ -1,0 +1,70 @@
+{
+  "Wallets": [
+    {
+      "$type": "cash",
+      "Id": "W1",
+      "Name": "V\u00ED Ti\u1EC1n M\u1EB7t",
+      "Balance": 250000,
+      "Transactions": [
+        {
+          "Id": 1,
+          "Amount": 200000,
+          "Date": "2026-04-15T08:45:58.1165271+07:00",
+          "Note": "L\u01B0\u01A1ng",
+          "Type": 0,
+          "Category": {
+            "Id": "SALARY",
+            "Name": "Ti\u1EC1n l\u01B0\u01A1ng \uD83D\uDCB5"
+          }
+        },
+        {
+          "Id": 2,
+          "Amount": 50000,
+          "Date": "2026-04-15T08:46:17.3030421+07:00",
+          "Note": "\u0102n u\u1ED1ng",
+          "Type": 1,
+          "Category": {
+            "Id": "FOOD",
+            "Name": "\u0102n u\u1ED1ng \uD83C\uDF55"
+          }
+        }
+      ]
+    },
+    {
+      "$type": "cash",
+      "Id": "W3",
+      "Name": "V\u00ED Ti\u1EBFt Ki\u1EC7m",
+      "Balance": 500000,
+      "Transactions": []
+    },
+    {
+      "$type": "card",
+      "Id": "W4",
+      "Name": "v\u00ED sex",
+      "Balance": 0,
+      "Transactions": []
+    }
+  ],
+  "Categories": [
+    {
+      "Id": "FOOD",
+      "Name": "\u0102n u\u1ED1ng \uD83C\uDF55"
+    },
+    {
+      "Id": "TRANSPORT",
+      "Name": "Di chuy\u1EC3n \uD83D\uDE97"
+    },
+    {
+      "Id": "SALARY",
+      "Name": "Ti\u1EC1n l\u01B0\u01A1ng \uD83D\uDCB5"
+    },
+    {
+      "Id": "RENT",
+      "Name": "Ti\u1EC1n nh\u00E0 \uD83C\uDFE0"
+    },
+    {
+      "Id": "MUA_SAM",
+      "Name": "Mua s\u1EAFm"
+    }
+  ]
+}
