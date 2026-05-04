@@ -1,0 +1,36 @@
+{
+  "Wallets": [
+    {
+      "$type": "cash",
+      "Id": "W1",
+      "Name": "V\u00ED Ti\u1EC1n M\u1EB7t",
+      "Balance": 100000,
+      "Transactions": []
+    },
+    {
+      "$type": "card",
+      "Id": "W2",
+      "Name": "Th\u1EBB ATM",
+      "Balance": 0,
+      "Transactions": []
+    }
+  ],
+  "Categories": [
+    {
+      "Id": "FOOD",
+      "Name": "\u0102n u\u1ED1ng \uD83C\uDF55"
+    },
+    {
+      "Id": "TRANSPORT",
+      "Name": "Di chuy\u1EC3n \uD83D\uDE97"
+    },
+    {
+      "Id": "SALARY",
+      "Name": "Ti\u1EC1n l\u01B0\u01A1ng \uD83D\uDCB5"
+    },
+    {
+      "Id": "RENT",
+      "Name": "Ti\u1EC1n nh\u00E0 \uD83C\uDFE0"
+    }
+  ]
+}
