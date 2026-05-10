@@ -13,7 +13,10 @@ namespace FinanceApp.Data
 
     public class FileHandler
     {
-        private const string _filePath = "database.json";
+        // private const string _filePath = "database.json"; // Đường dẫn đến file lưu trữ dữ liệu 
+                                                          // (chạy chương trình ở thư mục nào thì file database sẽ được tạo ở đó)
+
+        private static readonly string _filePath = Path.Combine(AppContext.BaseDirectory, "database.json");
 
         // Hàm lưu: Cất dữ liệu vào ổ cứng
         public void SaveDataToFile(SaveData data)
