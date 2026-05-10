@@ -1,4 +1,12 @@
-﻿using FinanceApp.Core.Enums;
+﻿/*
+ * Người tạo : Bùi Văn Hội
+ * Ngày tạo : 10/05/2026
+ * Mục đích : Mô hình hóa một giao dịch tài chính, bao gồm thông tin về số tiền, ngày tháng, ghi chú, loại giao dịch và danh mục.
+ * Tên file : Transaction.cs
+ * Thư mục  : Core/Models
+ * Version   : 1.0
+ */
+using FinanceApp.Core.Enums;
 using System;
 
 namespace FinanceApp.Core.Models

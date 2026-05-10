@@ -1,7 +1,7 @@
 ﻿/*
  * Người tạo : Bùi Văn Hội
  * Ngày tạo : 15/04/2026
- * Mục đích : 
+ * Mục đích : Sản xuất các loại ví tiền mặt (CashWallet) thông qua Factory Pattern.
  * Tên file : CashFactory.cs
  * Thư mục  : Core/Factories
  */

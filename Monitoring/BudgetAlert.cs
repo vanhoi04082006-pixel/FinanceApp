@@ -1,4 +1,12 @@
-﻿using FinanceApp.Core.Enums;
+﻿/*
+ * Người tạo : Bùi Văn Hội
+ * Ngày tạo : 10/05/2026
+ * Mục đích : Cảnh báo khi chi tiêu vượt quá hạn mức đã đặt cho một hạng mục cụ thể.
+ * Tên file : BudgetAlert.cs
+ * Thư mục  : Monitoring
+ * Version   : 1.0
+ */
+using FinanceApp.Core.Enums;
 using FinanceApp.Core.Models;
 using System;
 using System.Collections.Generic;

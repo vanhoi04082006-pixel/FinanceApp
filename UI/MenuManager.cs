@@ -3,7 +3,7 @@
  * Người tạo : Bùi Văn Hội
  * Ngày tạo : 12/04/2026
  * Mục đích : Quản lý giao diện Console với cấu trúc Sub-menus & Clear UX.
- * Version   : 2.0 (Phiên bản hoàn chỉnh cuối cùng 🏆)
+ * Version   : 2.0 
  */
 using FinanceApp.Core.Enums;
 using FinanceApp.Core.Models;

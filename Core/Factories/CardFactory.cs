@@ -1,7 +1,7 @@
 ﻿/*
  * Người tạo : Bùi Văn Hội
  * Ngày tạo : 15/04/2026
- * Mục đích :
+ * Mục đích : Sản xuất các loại ví thẻ (CardWallet) thông qua Factory Pattern.
  * Tên file : CardFactory.cs
  * Thư mục  : Core/Factories
  * Version : 1.0

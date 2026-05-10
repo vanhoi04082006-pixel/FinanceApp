@@ -1,4 +1,12 @@
-﻿using System.IO;
+﻿/*
+ * Người tạo : Bùi Văn Hội
+ * Ngày tạo : 10/05/2026
+ * Mục đích : Quản lý việc lưu trữ và truy xuất dữ liệu của ứng dụng thông qua file JSON.
+ * Tên file : FileHandler.cs
+ * Thư mục  : Data
+ * Version   : 1.0
+ */
+using System.IO;
 using System.Text.Json;
 using System.Collections.Generic;
 using FinanceApp.Core.Models;
